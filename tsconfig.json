@@ -26,7 +26,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/error.js"
+    "app/error.js",
+    "app/create/page.jsx",
+    "app/page.jsx",
+    "components/Topics/form.jsx"
   ],
   "exclude": ["node_modules"]
 }

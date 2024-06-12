@@ -18,12 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="container flex gap-4">
-          <Link href="/">Home</Link>
-          <Link href="/restaurants">Restaurants</Link>
+      <body>
+        <div className={`${inter.className} container grid grid-col gap-16`}>
+          <div className="container flex justify-evenly bg-gray-400">
+            <Link href="/">Home</Link>
+            <Link href="/create">Add</Link>
+          </div>
+          {children}
         </div>
-        {children}
+
         <Toaster />
       </body>
     </html>
