@@ -38,5 +38,5 @@ export async function addNewTopic(prevState, formData) {
 export async function deleteTopic(id) {
   console.log(id);
   await deleteTopicByID(id);
-  await revalidatePath("/");
+  revalidatePath("/");
 }
