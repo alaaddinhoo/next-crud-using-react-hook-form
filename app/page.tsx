@@ -1,6 +1,4 @@
-// "use client";
-
-import { Fragment, Suspense } from "react";
+import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Data from "@/components/Topics/data";
 

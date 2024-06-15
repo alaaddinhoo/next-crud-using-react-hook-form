@@ -20,7 +20,7 @@ export default async function Data() {
       {topics.map((t: any) => (
         <div className="flex place-items-center  justify-between bg-[#f7f7f7] p-4 rounded-lg mb-4 ">
           <div className="line-clamp-2">
-            {t.title}
+            {t.title + ": "}
             {t.description}
           </div>
 

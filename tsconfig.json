@@ -27,9 +27,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/error.js",
-    "app/create/page.jsx",
-    "app/page.jsx",
-    "components/Topics/form.jsx"
+    "app/create/page.tsx",
+    "app/page.tsx",
+    "components/Topics/form.tsx",
+    "util/http.js"
   ],
   "exclude": ["node_modules"]
 }

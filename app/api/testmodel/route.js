@@ -23,7 +23,10 @@ export async function GET(request) {
 export async function POST(request) {
   const data = await request.json();
 
+  // const data = null;
+
   await connectMongoDB();
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // added for testing purposes
 
   try {
     if (Array.isArray(data)) {
@@ -33,6 +36,8 @@ export async function POST(request) {
       // Handle single object
       await TestModel.create(data);
     } else {
+      console.log("Invalid data format. Expected an array or an object.");
+
       return NextResponse.json(
         { message: "Invalid data format. Expected an array or an object." },
         { status: 400 }

@@ -16,6 +16,9 @@ export async function GET(request, { params }) {
 export async function DELETE(request, { params }) {
   const { id } = params;
   await connectMongoDB();
+
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // added for testing purposes
+
   // Check if the provided id is a valid MongoDB ObjectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
@@ -31,6 +34,9 @@ export async function DELETE(request, { params }) {
 export async function PUT(request, { params }) {
   const { id } = params;
   const { newTitle: title, newDescription: description } = await request.json();
+
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // added for testing purposes
+
   await connectMongoDB();
   await TestModel.findByIdAndUpdate(id, { title, description });
   return NextResponse.json({ message: "Topic Updated" }, { status: 200 });
