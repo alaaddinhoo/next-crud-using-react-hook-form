@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
-import { lineSpinner, tailspin } from "ldrs";
+// import { lineSpinner, tailspin } from "ldrs";
 import { editTopicSchema } from "@/util/validation";
 import { z } from "zod";
 
@@ -22,6 +22,7 @@ import { revalidatePathOnly } from "@/util/server-actions";
 import { deleteTopicByID, editTopicByID } from "@/util/http";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+// import { useRouter } from "next/navigation";
 
 interface TopicsProps {
   title: string;
@@ -34,7 +35,9 @@ interface EditFormValues {
 }
 
 export default function TopicsForm({ title, description, id }: TopicsProps) {
-  tailspin.register();
+  // const router = useRouter();
+
+  // tailspin.register();
   const { toast } = useToast();
   const [open, setOpen] = useState(false); // for the dialog
   const {
@@ -60,6 +63,8 @@ export default function TopicsForm({ title, description, id }: TopicsProps) {
         title: "Success",
         description: response.message,
       });
+
+      // router.refresh();
     } catch (error: any) {
       // Handle error
       console.error("Error submitting form:", error);
@@ -83,6 +88,8 @@ export default function TopicsForm({ title, description, id }: TopicsProps) {
       });
 
       setOpen(false);
+
+      // router.refresh();
     } catch (error: any) {
       console.error("Error submitting form:", error);
 
@@ -143,12 +150,12 @@ export default function TopicsForm({ title, description, id }: TopicsProps) {
               <Button className="w-auto">
                 {isEditing ? (
                   <div className="flex gap-2">
-                    <l-tailspin
+                    {/* <l-tailspin
                       size="20"
                       stroke="2"
                       speed="1"
                       color="white"
-                    ></l-tailspin>
+                    ></l-tailspin> */}
                     <div>Saving changes</div>
                   </div>
                 ) : (
@@ -162,7 +169,7 @@ export default function TopicsForm({ title, description, id }: TopicsProps) {
       </Dialog>
 
       <form onSubmit={handleDeleteSubmit(handleDelete)}>
-        <Button variant={"destructive"}>
+        <Button variant={"destructive"} disabled={isDeleting}>
           {isDeleting ? "Deleting" : "Delete"}
         </Button>
         {/* <Input type="hidden" value={id} {...deleteRegister("id")}></Input> */}

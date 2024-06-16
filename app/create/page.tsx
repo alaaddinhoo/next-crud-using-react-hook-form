@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { revalidatePathAndRedirect } from "@/util/server-actions";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
+// import { useRouter } from "next/navigation";
 
 interface FormValues {
   title: string;
@@ -17,6 +18,7 @@ interface FormValues {
 }
 
 const Create = () => {
+  // const router = useRouter();
   const { toast } = useToast();
   const {
     register,
@@ -44,6 +46,7 @@ const Create = () => {
         description: "You will now be redirected to the homepage",
       });
 
+      // router.push("/");
       await revalidatePathAndRedirect("/", "/");
     } catch (error: any) {
       // Handle error
