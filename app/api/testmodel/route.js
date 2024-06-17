@@ -51,3 +51,14 @@ export async function POST(request) {
     );
   }
 }
+
+// deletes all
+export async function DELETE(request) {
+  await connectMongoDB();
+
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // added for testing purposes
+
+  await TestModel.deleteMany({});
+
+  return NextResponse.json({ message: "Topic(s) Deleted" }, { status: 200 });
+}

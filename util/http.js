@@ -1,6 +1,3 @@
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/server/api-utils";
-
 export async function getData() {
   const response = await fetch("http://localhost:3000/api/testmodel", {
     // cache: "no-store", // data shouldn't cache
